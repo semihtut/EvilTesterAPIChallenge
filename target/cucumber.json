@@ -1,0 +1,87 @@
+[
+  {
+    "line": 1,
+    "elements": [
+      {
+        "start_timestamp": "2021-03-04T21:37:22.707Z",
+        "before": [
+          {
+            "result": {
+              "duration": 431400,
+              "status": "passed"
+            },
+            "match": {
+              "location": "Hooks.setUp()"
+            }
+          }
+        ],
+        "line": 14,
+        "name": "GET TODOs",
+        "description": "",
+        "id": "get-all-challenges;get-todos",
+        "after": [
+          {
+            "result": {
+              "duration": 112900,
+              "status": "passed"
+            },
+            "match": {
+              "location": "Hooks.tearDown(Scenario)"
+            }
+          }
+        ],
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 2765542900,
+              "status": "passed"
+            },
+            "line": 15,
+            "name": "User enters the \"todos\" with url",
+            "match": {
+              "arguments": [
+                {
+                  "val": "\"todos\"",
+                  "offset": 16
+                }
+              ],
+              "location": "GetAllChallengesStepDefs.user_enters(String)"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 136634900,
+              "status": "passed"
+            },
+            "line": 16,
+            "name": "Status code should be 200",
+            "match": {
+              "arguments": [
+                {
+                  "val": "200",
+                  "offset": 22
+                }
+              ],
+              "location": "GetAllChallengesStepDefs.statusCodeShouldBe(int)"
+            },
+            "keyword": "Then "
+          }
+        ],
+        "tags": [
+          {
+            "name": "@Challenge3"
+          }
+        ]
+      }
+    ],
+    "name": "GET all challenges",
+    "description": "",
+    "id": "get-all-challenges",
+    "keyword": "Feature",
+    "uri": "file:src/test/resources/challenges.feature",
+    "tags": []
+  }
+]
