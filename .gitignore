@@ -4,3 +4,4 @@ EvilTesterAPIChallenges.iml
 
 src/main/
 target/generated-test-sources/
+pom.xml
