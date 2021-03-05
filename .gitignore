@@ -1,0 +1,6 @@
+# Created by .ignore support plugin (hsz.mobi)
+Configuration.properties
+EvilTesterAPIChallenges.iml
+
+src/main/
+target/generated-test-sources/
