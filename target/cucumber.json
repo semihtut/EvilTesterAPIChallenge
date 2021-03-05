@@ -3,11 +3,11 @@
     "line": 1,
     "elements": [
       {
-        "start_timestamp": "2021-03-04T21:37:22.707Z",
+        "start_timestamp": "2021-03-05T20:58:00.970Z",
         "before": [
           {
             "result": {
-              "duration": 431400,
+              "duration": 401100,
               "status": "passed"
             },
             "match": {
@@ -15,14 +15,14 @@
             }
           }
         ],
-        "line": 14,
-        "name": "GET TODOs",
+        "line": 24,
+        "name": "GET TODOs/id",
         "description": "",
-        "id": "get-all-challenges;get-todos",
+        "id": "get-all-challenges;get-todos/id",
         "after": [
           {
             "result": {
-              "duration": 112900,
+              "duration": 82800,
               "status": "passed"
             },
             "match": {
@@ -35,28 +35,32 @@
         "steps": [
           {
             "result": {
-              "duration": 2765542900,
+              "duration": 2307309700,
               "status": "passed"
             },
-            "line": 15,
-            "name": "User enters the \"todos\" with url",
+            "line": 25,
+            "name": "User enters the \"todos/\" with url and id number 66",
             "match": {
               "arguments": [
                 {
-                  "val": "\"todos\"",
+                  "val": "\"todos/\"",
                   "offset": 16
+                },
+                {
+                  "val": "66",
+                  "offset": 48
                 }
               ],
-              "location": "GetAllChallengesStepDefs.user_enters(String)"
+              "location": "GetAllChallengesStepDefs.userEntersTheWithUrlAndIdNumber(String,int)"
             },
             "keyword": "Given "
           },
           {
             "result": {
-              "duration": 136634900,
+              "duration": 46193300,
               "status": "passed"
             },
-            "line": 16,
+            "line": 26,
             "name": "Status code should be 200",
             "match": {
               "arguments": [
@@ -72,7 +76,7 @@
         ],
         "tags": [
           {
-            "name": "@Challenge3"
+            "name": "@Challenge5"
           }
         ]
       }
