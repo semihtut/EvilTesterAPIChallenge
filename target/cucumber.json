@@ -3,11 +3,11 @@
     "line": 1,
     "elements": [
       {
-        "start_timestamp": "2021-03-05T20:58:00.970Z",
+        "start_timestamp": "2021-03-06T20:16:59.110Z",
         "before": [
           {
             "result": {
-              "duration": 401100,
+              "duration": 409000,
               "status": "passed"
             },
             "match": {
@@ -15,14 +15,14 @@
             }
           }
         ],
-        "line": 24,
-        "name": "GET TODOs/id",
+        "line": 29,
+        "name": "POST TODO",
         "description": "",
-        "id": "get-all-challenges;get-todos/id",
+        "id": "get-all-challenges;post-todo",
         "after": [
           {
             "result": {
-              "duration": 82800,
+              "duration": 75700,
               "status": "passed"
             },
             "match": {
@@ -35,32 +35,28 @@
         "steps": [
           {
             "result": {
-              "duration": 2307309700,
+              "duration": 3592656200,
               "status": "passed"
             },
-            "line": 25,
-            "name": "User enters the \"todos/\" with url and id number 66",
+            "line": 30,
+            "name": "User enters the \"todos\" with url and POST",
             "match": {
               "arguments": [
                 {
-                  "val": "\"todos/\"",
+                  "val": "\"todos\"",
                   "offset": 16
-                },
-                {
-                  "val": "66",
-                  "offset": 48
                 }
               ],
-              "location": "GetAllChallengesStepDefs.userEntersTheWithUrlAndIdNumber(String,int)"
+              "location": "GetAllChallengesStepDefs.userEntersTheWithUrlAndPOST(String)"
             },
             "keyword": "Given "
           },
           {
             "result": {
-              "duration": 46193300,
+              "duration": 19721000,
               "status": "passed"
             },
-            "line": 26,
+            "line": 31,
             "name": "Status code should be 200",
             "match": {
               "arguments": [
@@ -71,12 +67,36 @@
               ],
               "location": "GetAllChallengesStepDefs.statusCodeShouldBe(int)"
             },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 808214800,
+              "status": "passed"
+            },
+            "line": 32,
+            "name": "User can be able to delete any TODO with id",
+            "match": {
+              "location": "GetAllChallengesStepDefs.userCanBeAbleToDeleteAnyTODOWithId()"
+            },
             "keyword": "Then "
+          },
+          {
+            "result": {
+              "duration": 1094918700,
+              "status": "passed"
+            },
+            "line": 33,
+            "name": "User should NOT see the deleted TODO",
+            "match": {
+              "location": "GetAllChallengesStepDefs.userShouldNOTSeeTheDeletedTODO()"
+            },
+            "keyword": "And "
           }
         ],
         "tags": [
           {
-            "name": "@Challenge5"
+            "name": "@Challenge6"
           }
         ]
       }

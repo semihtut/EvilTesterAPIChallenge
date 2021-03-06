@@ -10,7 +10,7 @@ import org.junit.runner.RunWith;
         features = "src/test/resources/",
         glue = "EvilTester/StepDefinitions/",
         dryRun = false,
-        tags = "@Challenge5"
+        tags = "@Challenge6"
 
 )
 public class Runner {

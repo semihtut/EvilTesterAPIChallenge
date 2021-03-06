@@ -1,19 +1,19 @@
 package EvilTester.StepDefinitions;
 
-import EvilTester.POJOs.MyResponse;
-import EvilTester.POJOs.ResponseTODOS;
-import EvilTester.POJOs.TodoItem;
-import EvilTester.POJOs.TodosItem;
+import EvilTester.POJOs.*;
 import EvilTester.Utilities.ConfigurationReader;
 import EvilTester.Utilities.EvilTesterUtilities;
 import io.cucumber.java.en.*;
 import io.restassured.response.Response;
 import org.junit.Assert;
 
+import java.util.List;
+
 import static io.restassured.RestAssured.*;
 
 public class GetAllChallengesStepDefs {
     Response response;
+    int idGlobal;
 
     @Given("User enters the {string} with url")
     public void user_enters(String string) {
@@ -23,6 +23,7 @@ public class GetAllChallengesStepDefs {
             response = given().spec(EvilTesterUtilities.requestChallenger()).when().get(ConfigurationReader.get("url")+string);
         }
 
+        response.jsonPath().getList("todos.id").forEach(System.out::println);
     }
 
     @Then("User should see all challenges")
@@ -44,7 +45,6 @@ public class GetAllChallengesStepDefs {
     @Then("Status code should be {int}")
     public void statusCodeShouldBe(int statusCode) {
         response.then().statusCode(statusCode);
-        response.then().log().all();
 
     }
 
@@ -53,5 +53,37 @@ public class GetAllChallengesStepDefs {
         response = given().spec(EvilTesterUtilities.requestChallenger()).when().get(ConfigurationReader.get("url")+endingPoint+idNumber);
         TodoItem todoItem = response.body().as(TodoItem.class);
         System.out.println("todosItem.getTitle() = " + todoItem.getTodos().get(0).getTitle());
+    }
+
+    @Given("User enters the {string} with url and POST")
+    public void userEntersTheWithUrlAndPOST(String endingPoint) {
+
+        response= given().spec(EvilTesterUtilities.requestChallenger())
+                         .body(CreateTODO.createTODOs("MyNewTod11",false,"Challange new TODO"))
+                         .when().post(ConfigurationReader.get("url")+endingPoint);
+        String actualTitle = response.jsonPath().getString("title");
+        Assert.assertEquals("Check the titles are same",actualTitle,"MyNewTod11");
+        idGlobal = response.body().path("id");
+        System.out.println("idGlobal = " + idGlobal);
+        response = given().spec(EvilTesterUtilities.requestChallenger())
+                .when().delete(ConfigurationReader.get("url")+endingPoint+"/"+idGlobal);
+
+    }
+
+    @Then("User can be able to delete any TODO with id")
+    public void userCanBeAbleToDeleteAnyTODOWithId() {
+        response = given().spec(EvilTesterUtilities.requestChallenger())
+                .when().delete(ConfigurationReader.get("url")+"todos"+idGlobal);
+
+
+    }
+
+    @And("User should NOT see the deleted TODO")
+    public void userShouldNOTSeeTheDeletedTODO() {
+        response = given().spec(EvilTesterUtilities.requestChallenger()).when().get(ConfigurationReader.get("url")+"todos");
+        List<Integer>allIds = response.jsonPath().getList("todos.id");
+        allIds.forEach(System.out::println);
+        Assert.assertFalse(allIds.contains(idGlobal));
+
     }
 }

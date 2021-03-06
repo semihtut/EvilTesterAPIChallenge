@@ -16,7 +16,7 @@ Feature: GET all challenges
     Then Status code should be 200
 
   @Challenge4
-  Scenario: GET TODOs
+  Scenario: GET TODO
     Given User enters the "todo" with url
     Then Status code should be 404
 
@@ -24,5 +24,13 @@ Feature: GET all challenges
   Scenario: GET TODOs/id
     Given User enters the "todos/" with url and id number 66
     Then Status code should be 200
+
+  @Challenge6
+  Scenario: POST TODO
+    Given User enters the "todos" with url and POST
+    When Status code should be 200
+    Then User can be able to delete any TODO with id
+    And User should NOT see the deleted TODO
+
 
 
