@@ -6,3 +6,4 @@ src/main/
 target/generated-test-sources/
 pom.xml
 src/test/java/EvilTester/Utilities/ConfigurationReader.java
+#Store spesific data inside Config.properties
